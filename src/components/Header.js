@@ -12,6 +12,8 @@ import { makeStyles } from "@material-ui/styles";
 import React from "react";
 import { useHistory } from "react-router-dom";
 import { CryptoState } from "../CryptoContext";
+import AuthModal from "./Authentication/AuthModal";
+import Profile from "./Authentication/Profile";
 
 const useStyles = makeStyles(() => ({
   title: {
@@ -35,8 +37,8 @@ const darkTheme = createTheme({
 const Header = () => {
   const classes = useStyles();
   const history = useHistory();
-  const { currency, setCurrency } = CryptoState();
-  console.log(currency);
+  const { currency, setCurrency, user, isLogged } = CryptoState();
+  // console.log(user);
 
   return (
     <ThemeProvider theme={darkTheme}>
@@ -48,17 +50,19 @@ const Header = () => {
               className={classes.title}
               variant="h5"
             >
-              Crypto Hunter
+              Crypto Pal
             </Typography>
             <Select
               variant="outlined"
-              style={{ width: 100, height: 40, marginRight: 15 }}
+              style={{ width: 100, height: 40 }}
               value={currency}
               onChange={(e) => setCurrency(e.target.value)}
             >
               <MenuItem value={"USD"}>USD</MenuItem>
               <MenuItem value={"INR"}>INR</MenuItem>
             </Select>
+
+            {isLogged ? <Profile /> : <AuthModal />}
           </Toolbar>
         </Container>
       </AppBar>

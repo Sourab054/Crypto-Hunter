@@ -59,7 +59,7 @@ const CoinsTable = () => {
 
   const fetchCoins = async () => {
     const { data } = await axios.get(CoinList(currency));
-    console.log(data);
+    // console.log(data);
     setCoins(data);
     setLoading(false);
   };
@@ -70,7 +70,7 @@ const CoinsTable = () => {
         coin.name.toLowerCase().includes(search) ||
         coin.symbol.toLowerCase().includes(search)
     );
-    console.log(searchCoins);
+    // console.log(searchCoins);
     return searchCoins;
   };
 
@@ -197,7 +197,7 @@ const CoinsTable = () => {
             display: "flex",
             justifyContent: "center",
           }}
-          count={(handleSearch().length / 10).toFixed(0)}
+          count={parseInt((handleSearch().length / 10).toFixed(0))}
           classes={{ ul: classes.pagination }}
           onChange={(e, value) => {
             setPage(value);

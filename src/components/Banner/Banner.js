@@ -42,7 +42,7 @@ const Banner = () => {
               fontFamily: "Montserrat",
             }}
           >
-            Crypto Hunter
+            Crypto Pal
           </Typography>
           <Typography
             variant="subtitle2"
@@ -52,7 +52,7 @@ const Banner = () => {
               fontFamily: "Montserrat",
             }}
           >
-            Get all the Info regarding your favorite Crypto Currency
+            Get all the Info regarding your favorite Crypto Currency.
           </Typography>
         </div>
         <Carousel />
